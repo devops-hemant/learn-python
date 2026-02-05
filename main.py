@@ -1,14 +1,5 @@
 #!/usr/bin/python3
 
-# def greet(name):
-#     print(f"Hello! {name}")
-
-# greet("hemant")
-
-    
-
-def add(a, b):
-    return a + b
-
-result = add(10, 5)
-print(result)  # 15
+# git user name and email configuration
+git config --global user.name "devops-hemant"
+git config --global user.email "devopshemant@gmail.com"
