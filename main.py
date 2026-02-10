@@ -62,17 +62,37 @@
 # replicas=3
 
 
-with open("config.txt", "w+") as file:
-    file.write("env=prod\nregion=centralindia\nreplicas=3")
-    file.seek(0)
-    content=file.read()
-    print(content)
+# with open("config.txt", "w+") as file:
+#     file.write("env=prod\nregion=centralindia\nreplicas=3")
+#     file.seek(0)
+#     content=file.read()
+#     print(content)
     
-config = {}
+# config = {}
 
-with open("config.txt", "r") as file:
-    for line in file:
-        key, value = line.strip().split("=")
-        config[key] = value
+# with open("config.txt", "r") as file:
+#     for line in file:
+#         key, value = line.strip().split("=")
+#         config[key] = value
 
-    print(config)
+#     print(config)
+
+def check_log_error(log_file):
+    try:
+        error_value = 0
+        with open(log_file, "r") as file:
+            for line in file:
+                if "ERROR" in line:
+                    error_value += 1
+        return error_value
+    except FileNotFoundError:
+        return -1
+    
+errors = check_log_error("app.log")
+if errors > 0:
+    print("There are more than 1 error")
+elif errors == 0:
+    print("No error")
+else:
+    print("file not found")
+
