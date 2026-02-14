@@ -1,0 +1,5 @@
+[
+  {"name": "aks-prod", "type": "AKS", "status": "Running"},
+  {"name": "web-01", "type": "WebApp", "status": "Stopped"},
+  {"name": "db-01", "type": "CosmosDB", "status": "Running"}
+]
